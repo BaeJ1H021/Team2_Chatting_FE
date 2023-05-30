@@ -24,7 +24,7 @@ const label = {
 	success: {
 		title: '로그인 성공',
 		body: '홈페이지로 이동',
-		link: '/auth',
+		link: '/home',
 	},
 	fail: {
 		title: '로그인 실패',
@@ -85,13 +85,11 @@ const Login = () => {
 	const onSubmitHandler: SubmitHandler<FormValues> = async (data) => {
 		console.log(data);
 
-		const res = dummy;
-		/*
 		const res = await LogInApi({
 			email: data.email,
 			password: data.password,
 		});
-		*/
+
 		if (res.status === 200) {
 			// access token 설정.
 			setAuth({ status: 'valid', accessToken: res.data.accessToken });

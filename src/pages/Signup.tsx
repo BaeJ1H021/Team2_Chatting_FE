@@ -16,6 +16,23 @@ export interface FormValues {
 	phone: string;
 	univ: string;
 }
+
+export interface Res {
+	status: number;
+	data: {
+		memberId: number;
+		email: string;
+		password: string;
+		regdate: string;
+	};
+}
+
+export interface Data {
+	memberId: number;
+	email: string;
+	password: string;
+	regdate: string;
+}
 const FullScreen = styled.div`
 	display: flex;
 	justify-content: center;
@@ -83,23 +100,21 @@ const Signup = () => {
 		}
 		// 비밀번호는 맞아.
 		else {
-			/*
-			const res = await SignUpApi({
+			const res: Res = await SignUpApi({
 				email: data.email,
 				password: data.password,
 				name: data.name,
 			});
-			*/
-			const res = dummy;
 			// 회원가입 성공
-			if (res.status === 200) {
+			if (res?.status === 200) {
 				console.log('회원가입 성공');
+				console.log(res);
 				handleOpen();
 			} else {
 				setError50x(true);
+				console.log(res);
 				console.log('회원가입 실패');
 				handleOpen();
-				console.log(res.data.memberId);
 			}
 		}
 	};

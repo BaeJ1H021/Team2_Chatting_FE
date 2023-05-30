@@ -16,10 +16,6 @@ export const router = createBrowserRouter([
 		element: <App />,
 		children: [
 			{
-				path: '/auth',
-				element: <AuthPage />,
-			},
-			{
 				path: 'login',
 				element: <Login />,
 			},
@@ -32,26 +28,16 @@ export const router = createBrowserRouter([
 				element: <KakaoAuth />,
 			},
 			{
-				path: 'must',
-				element: <ProtectedRoute />,
-				children: [
-					{
-						path: 'login',
-						element: <LoginHome />,
-					},
-				],
+				path: 'home',
+				element: <HomePage />,
 			},
 			{
 				path: '/',
-				element: <Root />,
+				element: <ProtectedRoute />,
 				children: [
 					{
 						path: 'chats',
 						element: <Chatpage />,
-					},
-					{
-						path: 'home',
-						element: <HomePage />,
 					},
 				],
 			},
